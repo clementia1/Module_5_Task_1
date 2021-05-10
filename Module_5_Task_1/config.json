@@ -1,0 +1,6 @@
+{
+  "apiUrl": "https://reqres.in/api",
+  "userControllerRoute": "/users",
+  "registrationControllerRoute": "/register",
+  "authorizationControllerRoute": "/login"
+}
