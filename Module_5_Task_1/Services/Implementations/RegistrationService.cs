@@ -16,8 +16,8 @@ namespace Module_5_Task_1.Services.Implementations
 
         public RegistrationService()
         {
-            _configService = new ConfigService();
-            _httpService = new HttpService();
+            _configService = LocatorService.ConfigService;
+            _httpService = LocatorService.HttpService;
 
             var config = _configService.ReadConfig();
             _endpointUrl = config.ApiUrl + config.RegistrationControllerRoute;
