@@ -41,6 +41,16 @@ namespace Module_5_Task_1.Services.Implementations
             {
                 var response = await httpClient.SendAsync(requestMessage);
                 var content = await response.Content.ReadAsStringAsync();
+
+                if (response.Content is null)
+                {
+                    Console.WriteLine("response.Content is null");
+                }
+                else
+                {
+                    Console.WriteLine(response.Content.Headers.ContentType.MediaType);
+                }
+
                 var responseObj = JsonConvert.DeserializeObject<TResponseObject>(content);
                 return responseObj;
             }

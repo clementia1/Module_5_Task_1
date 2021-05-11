@@ -28,13 +28,13 @@ namespace Module_5_Task_1
             // var regRequest = new RegistrationRequest { Email = "eve.holt@reqres.in", Password = "pistol" };
             // var response = await _registrationService.Register(regRequest);
             var res = await _unknownService.GetById(23);
-            if (res is null)
+            if (res.Unknown is null)
             {
-                Console.WriteLine("null");
+                Console.WriteLine($"{res}");
             }
             else
             {
-                Console.WriteLine($"{res.Unknown.Name}");
+                Console.WriteLine($"{res?.Unknown?.Name}");
             }
         }
     }
