@@ -14,8 +14,8 @@ namespace Module_5_Task_1.Services.Implementations
     public class UserService : IUserService
     {
         private readonly string _endpointUrl;
-        private readonly HttpService _httpService;
-        private readonly ConfigService _configService;
+        private readonly IHttpService _httpService;
+        private readonly IConfigService _configService;
 
         public UserService()
         {

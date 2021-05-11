@@ -9,6 +9,8 @@ namespace Module_5_Task_1.Services.Abstractions
 {
     public interface IHttpService
     {
+        Task<HttpResponseMessage> SendAsync(HttpRequestMessage requestMessage);
+
         Task<TResponseObject> SendAsync<TResponseObject>(HttpRequestMessage requestMessage);
     }
 }

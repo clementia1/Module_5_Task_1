@@ -14,23 +14,20 @@ namespace Module_5_Task_1.Services.Implementations
 {
     public class HttpService : IHttpService
     {
+        public async Task<TResponseObject> SendAsync<TResponseObject>(HttpRequestMessage requestMessage)
+        {
+            var response = await SendAsync(requestMessage);
+            var content = await response.Content.ReadAsStringAsync();
+            var responseObj = JsonConvert.DeserializeObject<TResponseObject>(content);
+            return responseObj;
+        }
+
         public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage requestMessage)
         {
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.SendAsync(requestMessage);
                 return response;
-            }
-        }
-
-        public async Task<TResponseObject> SendAsync<TResponseObject>(HttpRequestMessage requestMessage)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.SendAsync(requestMessage);
-                var content = await response.Content.ReadAsStringAsync();
-                var responseObj = JsonConvert.DeserializeObject<TResponseObject>(content);
-                return responseObj;
             }
         }
     }
