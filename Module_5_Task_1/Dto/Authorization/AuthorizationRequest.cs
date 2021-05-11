@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Module_5_Task_1.Dto
+namespace Module_5_Task_1.Dto.Authorization
 {
-    public class RegistrationRequest
+    public class AuthorizationRequest
     {
         [JsonProperty("email")]
         public string Email { get; set; }

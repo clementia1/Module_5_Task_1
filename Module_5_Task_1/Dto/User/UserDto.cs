@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 
 namespace Module_5_Task_1.Dto.User
 {
-    [Serializable]
     public class UserDto
     {
         [JsonProperty("id")]

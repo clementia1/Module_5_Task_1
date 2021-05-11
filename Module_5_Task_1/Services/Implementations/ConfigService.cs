@@ -12,12 +12,7 @@ namespace Module_5_Task_1.Services.Implementations
 {
     public class ConfigService : IConfigService
     {
-        private string _configPath;
-
-        public ConfigService()
-        {
-            _configPath = "config.json";
-        }
+        private const string _configPath = "config.json";
 
         public Config ReadConfig()
         {

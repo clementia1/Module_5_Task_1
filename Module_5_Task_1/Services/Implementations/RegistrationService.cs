@@ -1,43 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Module_5_Task_1.Dto;
+using Module_5_Task_1.Dto.Registration;
 using Module_5_Task_1.Models;
+using Module_5_Task_1.Services.Abstractions;
 
 namespace Module_5_Task_1.Services.Implementations
 {
-    public class RegistrationService
+    public class RegistrationService : IRegistrationService
     {
         private readonly string _endpointUrl;
-        private readonly Config _config;
         private readonly HttpService _httpService;
-        private readonly HttpResponseParser _httpResponseParser;
         private readonly ConfigService _configService;
 
         public RegistrationService()
         {
             _configService = new ConfigService();
             _httpService = new HttpService();
-            _httpResponseParser = new HttpResponseParser();
 
-            _config = _configService.ReadConfig();
-            _endpointUrl = _config.ApiUrl + _config.RegistrationControllerRoute;
+            var config = _configService.ReadConfig();
+            _endpointUrl = config.ApiUrl + config.RegistrationControllerRoute;
         }
 
         public async Task<RegistrationResponse> Register(RegistrationRequest request)
         {
             var httpMessage = new HttpRequestMessage(HttpMethod.Post, _endpointUrl);
             httpMessage.Content = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
+            var response = await _httpService.SendAsync<RegistrationResponse>(httpMessage);
 
-            var response = await _httpService.SendAsync(httpMessage);
-            var data = await _httpResponseParser.ParseResponseAsync(response);
-            var registrationResponse = JsonConvert.DeserializeObject<RegistrationResponse>(data);
-            return registrationResponse;
+            return response;
         }
     }
 }

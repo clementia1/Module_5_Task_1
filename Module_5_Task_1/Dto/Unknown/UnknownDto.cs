@@ -8,26 +8,21 @@ using Newtonsoft.Json;
 
 namespace Module_5_Task_1.Dto.Unknown
 {
-    [Serializable]
     public class UnknownDto
     {
         [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty(PropertyName = "name", DefaultValueHandling = DefaultValueHandling.Populate)]
-        [DefaultValue("")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "year", DefaultValueHandling = DefaultValueHandling.Populate)]
-        [DefaultValue("")]
+        [JsonProperty("year")]
         public int Year { get; set; }
 
-        [JsonProperty(PropertyName = "color", DefaultValueHandling = DefaultValueHandling.Populate)]
-        [DefaultValue("")]
+        [JsonProperty("color")]
         public string Color { get; set; }
 
-        [JsonProperty(PropertyName = "pantone_value", DefaultValueHandling = DefaultValueHandling.Populate)]
-        [DefaultValue("")]
+        [JsonProperty("pantone_value")]
         public string PantoneValue { get; set; }
     }
 }

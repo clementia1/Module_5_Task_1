@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
+using Module_5_Task_1.Dto.Registration;
 
 namespace Module_5_Task_1.Services.Abstractions
 {
-    public interface IHttpService
+    public interface IRegistrationService
     {
-        Task<TResponseObject> SendAsync<TResponseObject>(HttpRequestMessage requestMessage);
+        Task<RegistrationResponse> Register(RegistrationRequest request);
     }
 }

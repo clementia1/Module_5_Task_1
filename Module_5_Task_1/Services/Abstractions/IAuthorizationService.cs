@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Http;
+using Module_5_Task_1.Dto.Authorization;
 
 namespace Module_5_Task_1.Services.Abstractions
 {
-    public interface IHttpService
+    public interface IAuthorizationService
     {
-        Task<TResponseObject> SendAsync<TResponseObject>(HttpRequestMessage requestMessage);
+        Task<AuthorizationResponse> Authorize(AuthorizationRequest request);
     }
 }
