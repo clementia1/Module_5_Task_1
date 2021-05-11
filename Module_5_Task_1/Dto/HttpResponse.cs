@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace Module_5_Task_1.Dto
 {
-    public class CreateUserRequest
+    public class HttpResponse<Type>
     {
-        public string Name { get; set; }
-        public string Job { get; set; }
+        public HttpStatusCode StatusCode { get; set; }
+
+        public Type RootObject { get; set; }
     }
 }

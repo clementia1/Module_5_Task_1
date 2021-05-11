@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module_5_Task_1.Dto
+namespace Module_5_Task_1.Dto.User
 {
     public class UpdateUserResponse
     {

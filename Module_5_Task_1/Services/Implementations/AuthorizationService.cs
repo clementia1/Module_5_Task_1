@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Module_5_Task_1.Dto;
 using Module_5_Task_1.Models;
 
-namespace Module_5_Task_1.Services
+namespace Module_5_Task_1.Services.Implementations
 {
     public class AuthorizationService
     {
@@ -26,7 +26,7 @@ namespace Module_5_Task_1.Services
             _endpointUrl = _config.ApiUrl + _config.AuthorizationControllerRoute;
         }
 
-        public void Login()
+        public void Authorize()
         {
         }
     }

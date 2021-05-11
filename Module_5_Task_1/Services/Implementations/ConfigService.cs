@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using Module_5_Task_1.Models;
+using Module_5_Task_1.Services.Abstractions;
 
-namespace Module_5_Task_1.Services
+namespace Module_5_Task_1.Services.Implementations
 {
-    public class ConfigService
+    public class ConfigService : IConfigService
     {
         private string _configPath;
 
